@@ -1,8 +1,8 @@
-import java.util.*;
+import java.util.Arrays;
 
 public class BinSearch {
 	public static void main(String[] args) {
-		int[] nums = new int[]{2, 10, 17, 30, 31, 37, 46, 121, 200, 315};
+		int[] nums = new int[] {2, 10, 17, 30, 31, 37, 46, 121, 200, 315};
 		System.out.println(search(nums, 200));
 	}
 
