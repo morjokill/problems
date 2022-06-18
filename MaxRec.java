@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class MaxRec {
     public static void main(String[] args) {
         int[] nums = new int[] {5, 10, 124, 22, 200};
@@ -8,8 +10,6 @@ public class MaxRec {
         if (nums.length == 1) {
             return nums[0];
         }
-        int[] nums1 = new int[nums.length - 1];
-        System.arraycopy(nums, 1, nums1, 0, nums.length - 1);
-        return Math.max(nums[0], max(nums1));
+        return Math.max(nums[0], max(Arrays.copyOfRange(nums, 1, nums.length)));
     }
 }
