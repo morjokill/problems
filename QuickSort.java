@@ -12,7 +12,6 @@ public class QuickSort {
         }
 
         int pivot = pivot(nums);
-        // swap
         swap(nums, 0, pivot);
         int i = 1;
         for (int j = 1; j < nums.length; j++) {
