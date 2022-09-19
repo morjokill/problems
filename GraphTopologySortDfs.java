@@ -4,8 +4,9 @@ import java.util.stream.Collectors;
 public class GraphTopologySortDfs {
 
     public static int order;
+    public static Character[] topology;
 
-    public static void topologySortDfs(Map<Character, List<Character>> graph) {
+    public static Character[] topologySortDfs(Map<Character, List<Character>> graph) {
         Set<Character> vertexes = new HashSet<>();
         vertexes = graph.values()
                    .stream()
@@ -13,6 +14,7 @@ public class GraphTopologySortDfs {
                    .collect(Collectors.toSet());
         vertexes.addAll(graph.keySet());
         order = vertexes.size();
+        topology = new Character[order];
         System.out.println("|V| = " + order);
         Set<Character> visited = new HashSet<>();
 
@@ -21,6 +23,8 @@ public class GraphTopologySortDfs {
                 dfs(graph, visited, v);
             }
         }
+
+        return topology;
     }
 
     public static void dfs(Map<Character, List<Character>> graph, Set<Character> visited,
@@ -34,6 +38,7 @@ public class GraphTopologySortDfs {
             }
         }
         System.out.println("Vertex : " + v + " order : " + order);
+        topology[order - 1] = v;
         order--;
     }
 
@@ -44,12 +49,12 @@ public class GraphTopologySortDfs {
         graph.put('d', Arrays.asList('e'));
         graph.put('g', Arrays.asList('h'));
         graph.put('f', Arrays.asList('h'));
-        topologySortDfs(graph);
+        System.out.println(Arrays.toString(topologySortDfs(graph)));
 
         Map<Character, List<Character>> graph1 = new HashMap<>();
         graph1.put('s', Arrays.asList('w', 'v'));
         graph1.put('v', Arrays.asList('t'));
         graph1.put('w', Arrays.asList('t'));
-        topologySortDfs(graph1);
+        System.out.println(Arrays.toString(topologySortDfs(graph1)));
     }
 }
