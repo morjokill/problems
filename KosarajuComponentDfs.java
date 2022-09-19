@@ -24,7 +24,7 @@ public class KosarajuComponentDfs {
     }
 
     public static void basicDfs(Map<Integer, List<Integer>> graph, Set<Integer> visited,
-                           Integer v) {
+                                Integer v) {
         visited.add(v);
 
         for (Integer w : graph.get(v)) {
@@ -56,7 +56,7 @@ public class KosarajuComponentDfs {
     }
 
     public static void topologyDfs(Map<Integer, List<Integer>> graph, Set<Integer> visited,
-                           Integer v) {
+                                   Integer v) {
         visited.add(v);
 
         List<Integer> adjacent = graph.getOrDefault(v, Collections.emptyList());
