@@ -95,7 +95,6 @@ public class KosarajuComponentDfs {
         graph.put(7, Arrays.asList(9));
         graph.put(4, Arrays.asList(7));
         graph.put(2, Arrays.asList(4, 10));
-        graph.put(4, Arrays.asList(7));
         System.out.println("Number of SCC: " + kosarajuComponents(graph));
     }
 }
